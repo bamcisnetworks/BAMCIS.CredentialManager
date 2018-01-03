@@ -11,6 +11,7 @@ When writing and reading stored credentials, if not specified, the credential ty
 ### Example 1
 
 *This example sets and retrieves credentials for a Windows Identity*
+    
     Set-CredManCredential -TargetName "john.smith" -UserName "john.smith" -Secret "password" -Comment "My test cred" -Flags CRED_FLAGS_USERNAME_TARGET -Type CRED_TYPE_DOMAIN_PASSWORD
     Get-CredManCredential -TargetName "john.smith" -Type CRED_TYPE_DOMAIN_PASSWORD
 
@@ -22,12 +23,15 @@ When writing and reading stored credentials, if not specified, the credential ty
 	Set-CredManCredential -TargetName "google.com" -UserName "john.smith" -Comment "Ready To Use" -WriteFlags CRED_PRESERVE_CREDENTIAL_BLOB
 
 ### Example 3
+
 *This example retrieves a list of all GENERIC credentials that start with the word Microsoft in the target name.
+   
     $Creds = Get-CredManCredentialList -Filter "Microsoft*"
 
 ### Example 4
 
 *This example removes an existing credential for google.com without being prompted for confirmation*
+    
     Remove-CredManCredential -TargetName "google.com" -Force
 
 ## Release Notes
